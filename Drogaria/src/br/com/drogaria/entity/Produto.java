@@ -27,17 +27,16 @@ public class Produto implements Serializable {
 	@Column(name="pro_descricao", length = 50 , nullable = false)
 	private String descricao;
 	
-	@Column(name="pro_descricao", scale=7, precision = 2, nullable = false)
+	@Column(name="pro_preco", precision = 7, scale=2, nullable = false)
 	private BigDecimal preco;
 	
-	@Column(name="pro_quantridade", scale=7, precision = 2, nullable = false)
+	@Column(name="pro_quantidade",precision = 7,scale=2, nullable = false)
 	private Integer quantidade;
 	
 	@JoinColumn(name = "tbl_fabricantes_fab_codigo", referencedColumnName = "fab_codigo" )
 	//Muito Produto tem um fabricante
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Fabricante fabricante;
-	
 
 	public Long getCodigo() {
 		return codigo;
@@ -84,8 +83,6 @@ public class Produto implements Serializable {
 		return "Produto [codigo=" + codigo + ", descricao=" + descricao + ", preco=" + preco + ", quantidade="
 				+ quantidade + ", fabricante=" + fabricante + "]";
 	}
-	
-	
 	
 	
 	
